@@ -31,7 +31,6 @@ namespace_imports = [
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
-
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
@@ -66,6 +65,12 @@ blob_fixups: blob_fixups_user_type = {
         .sig_replace('E0 8A', '94 8B'),
     'vendor/etc/init/android.hardware.security.keymint-service-qti.rc': blob_fixup()
         .regex_replace('android.hardware.security.keymint-service', 'android.hardware.security.keymint-service-qti'),
+    'vendor/lib64/libsnaplite_native.so': blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_acquire')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock')
 }  # fmt: skip
 
 module = ExtractUtilsModule(
