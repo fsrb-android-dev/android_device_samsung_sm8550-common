@@ -701,12 +701,6 @@ vendor/lib64/libhwvault.so
 vendor/lib64/libshctrl.so
 vendor/lib64/vendor.samsung.hardware.security.hermes-V1-ndk.so
 
-# Hotword Enrollment
-product/priv-app/HotwordEnrollmentOKGoogleEx4HEXAGON/HotwordEnrollmentOKGoogleEx4HEXAGON.apk
-product/priv-app/HotwordEnrollmentXGoogleEx4HEXAGON/HotwordEnrollmentXGoogleEx4HEXAGON.apk
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
-system_ext/framework/com.android.hotwordenrollment.common.util.jar
-
 # HyPer
 vendor/lib64/vendor.samsung.hardware.hyper-V2-ndk.so
 
