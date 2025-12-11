@@ -1,6 +1,6 @@
 #!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
 #
-# SPDX-FileCopyrightText: 2024 The LineageOS Project
+# SPDX-FileCopyrightText: 2025 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -47,6 +47,11 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libcppbor_external.so', 'libcppbor.so'),
     'vendor/lib64/hw/gatekeeper.mdfpp.so': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
+    (
+    'vendor/lib64/libdpps.so',
+    'vendor/lib64/libsnapdragoncolor-manager.so',
+    ): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     ('vendor/lib64/ese_spi_nxp.so', 'vendor/lib64/nfc_nci_nxpsn.so'): blob_fixup()
 	.add_needed('libbase_shim.so'),
     'vendor/lib64/libsec-ril.so': blob_fixup()
